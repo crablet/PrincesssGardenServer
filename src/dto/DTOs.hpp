@@ -22,6 +22,14 @@ class MyDto : public oatpp::DTO
     DTO_FIELD(String, message);
 };
 
+class TestGetParamDto : public oatpp::DTO
+{
+    DTO_INIT(TestGetParamDto, DTO)
+
+    DTO_FIELD(Int32, statusCode);
+    DTO_FIELD(String, param);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif //PRINCESSSGARDENSERVER_DTOS_HPP

@@ -35,6 +35,7 @@ void run()
     /* Run server */
     server.run();
 }
+
 int main()
 {
     oatpp::base::Environment::init();

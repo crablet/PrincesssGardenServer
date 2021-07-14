@@ -34,7 +34,14 @@ public:
         return createDtoResponse(Status::CODE_200, dto);
     }
 
-    // TODO Insert Your endpoints here !!!
+    ENDPOINT("GET", "/user", getUser, QUERY(String, user, "id"))
+    {
+        auto dto = TestGetParamDto::createShared();
+        dto->statusCode = 200;
+        dto->param = user.getValue("");
+
+        return createDtoResponse(Status::CODE_200, dto);
+    }
 };
 
 #include OATPP_CODEGEN_END(ApiController)
