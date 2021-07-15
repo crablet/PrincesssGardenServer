@@ -78,6 +78,31 @@ public:
             return createDtoResponse(Status::CODE_200, dto);
         }
     }
+
+    ENDPOINT("GET", "gardenStatus", getGardenStatus, QUERY(String, type, "type"))
+    {
+        auto dto = GardenStatusDto::createShared();
+        dto->statusCode = 200;
+        dto->type = type.getValue("");
+        dto->plantList = {};
+
+        for (int i = 0; i < 5; ++i)
+        {
+            auto plantDto = PlantStatusDto::createShared();
+            plantDto->id = 53;
+            plantDto->name = "西瓜";
+            plantDto->growth = 53;
+            plantDto->maturity = 53;
+            plantDto->sun = 53;
+            plantDto->water = 53;
+            plantDto->fertilizer = 53;
+            plantDto->period = 53;
+
+            dto->plantList->push_back(plantDto);
+        }
+
+        return createDtoResponse(Status::CODE_200, dto);
+    }
 };
 
 #include OATPP_CODEGEN_END(ApiController)
