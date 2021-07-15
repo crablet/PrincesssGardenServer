@@ -30,6 +30,19 @@ class TestGetParamDto : public oatpp::DTO
     DTO_FIELD(String, param);
 };
 
+class TimeMachineDto : public oatpp::DTO
+{
+    DTO_INIT(TimeMachineDto, DTO)
+
+    DTO_FIELD(Int32, statusCode);
+    DTO_FIELD(Int32, year);
+    DTO_FIELD(Int32, month);
+    DTO_FIELD(Int32, day);
+    DTO_FIELD(String, textTitle);
+    DTO_FIELD(String, textBody);
+    DTO_FIELD(String, gift);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif //PRINCESSSGARDENSERVER_DTOS_HPP
