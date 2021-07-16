@@ -103,6 +103,27 @@ public:
 
         return createDtoResponse(Status::CODE_200, dto);
     }
+
+    ENDPOINT("GET", "shopInfo", getShopInfo, QUERY(String, type, "type"))
+    {
+        auto dto = ShopInfoDto::createShared();
+        dto->statusCode = 200;
+        dto->plantList = {};
+
+        for (int i = 0; i < 5; ++i)
+        {
+            auto plantInfoDto = PlantInfoForShopDto::createShared();
+            plantInfoDto->name = "东瓜";
+            plantInfoDto->price = 53;
+            plantInfoDto->left = 53;
+            plantInfoDto->maturity = 53;
+            plantInfoDto->ratio = 53;
+
+            dto->plantList->push_back(plantInfoDto);
+        }
+
+        return createDtoResponse(Status::CODE_200, dto);
+    }
 };
 
 #include OATPP_CODEGEN_END(ApiController)

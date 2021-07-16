@@ -66,6 +66,25 @@ class GardenStatusDto : public oatpp::DTO
     DTO_FIELD(List<Object<PlantStatusDto>>, plantList);
 };
 
+class PlantInfoForShopDto : public oatpp::DTO
+{
+    DTO_INIT(PlantInfoForShopDto, DTO)
+
+    DTO_FIELD(String, name);    // 名称
+    DTO_FIELD(Int32, price);    // 单价
+    DTO_FIELD(Int32, maturity); // 成熟期
+    DTO_FIELD(Int32, ratio);    // 一颗种子结多少个果
+    DTO_FIELD(Int32, left);     // 余量
+};
+
+class ShopInfoDto : public oatpp::DTO
+{
+    DTO_INIT(ShopInfoDto, DTO)
+
+    DTO_FIELD(Int32, statusCode);
+    DTO_FIELD(List<Object<PlantInfoForShopDto>>, plantList);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif //PRINCESSSGARDENSERVER_DTOS_HPP
