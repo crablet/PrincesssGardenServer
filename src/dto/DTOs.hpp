@@ -85,6 +85,15 @@ class ShopInfoDto : public oatpp::DTO
     DTO_FIELD(List<Object<PlantInfoForShopDto>>, plantList);
 };
 
+class WateredResultDto : public oatpp::DTO
+{
+    DTO_INIT(WateredResultDto, DTO)
+
+    DTO_FIELD(Int32, statusCode);
+    DTO_FIELD(Int32, id);
+    DTO_FIELD(Int32, water);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif //PRINCESSSGARDENSERVER_DTOS_HPP

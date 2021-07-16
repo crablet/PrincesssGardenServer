@@ -6,6 +6,7 @@
 #define PRINCESSSGARDENSERVER_MYCONTROLLER_H
 
 #include <sstream>
+#include <string>
 
 #include "oatpp/web/server/api/ApiController.hpp"
 #include "oatpp/core/macro/codegen.hpp"
@@ -121,6 +122,16 @@ public:
 
             dto->plantList->push_back(plantInfoDto);
         }
+
+        return createDtoResponse(Status::CODE_200, dto);
+    }
+
+    ENDPOINT("GET", "water", getWateredResult, QUERY(Int32, id, "id"))
+    {
+        auto dto = WateredResultDto::createShared();
+        dto->statusCode = 200;
+        dto->id = id.getValue(53);
+        dto->water = 53;
 
         return createDtoResponse(Status::CODE_200, dto);
     }
