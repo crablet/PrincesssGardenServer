@@ -135,6 +135,16 @@ public:
 
         return createDtoResponse(Status::CODE_200, dto);
     }
+
+    ENDPOINT("GET", "sun", getSunnedResult, QUERY(Int32, id, "id"))
+    {
+        auto dto = SunnedResultDto::createShared();
+        dto->statusCode = 200;
+        dto->id = id.getValue(53);
+        dto->sun = 53;
+
+        return createDtoResponse(Status::CODE_200, dto);
+    }
 };
 
 #include OATPP_CODEGEN_END(ApiController)

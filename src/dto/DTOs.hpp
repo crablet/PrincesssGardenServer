@@ -94,6 +94,15 @@ class WateredResultDto : public oatpp::DTO
     DTO_FIELD(Int32, water);
 };
 
+class SunnedResultDto : public oatpp::DTO
+{
+    DTO_INIT(SunnedResultDto, DTO)
+
+    DTO_FIELD(Int32, statusCode);
+    DTO_FIELD(Int32, id);
+    DTO_FIELD(Int32, sun);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif //PRINCESSSGARDENSERVER_DTOS_HPP
