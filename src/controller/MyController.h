@@ -145,6 +145,16 @@ public:
 
         return createDtoResponse(Status::CODE_200, dto);
     }
+
+    ENDPOINT("GET", "fertilizer", getFertilizerResult, QUERY(Int32, id, "id"))
+    {
+        auto dto = FertilizerResultDto::createShared();
+        dto->statusCode = 200;
+        dto->id = id.getValue(53);
+        dto->fertilizer = 53;
+
+        return createDtoResponse(Status::CODE_200, dto);
+    }
 };
 
 #include OATPP_CODEGEN_END(ApiController)

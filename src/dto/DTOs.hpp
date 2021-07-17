@@ -103,6 +103,15 @@ class SunnedResultDto : public oatpp::DTO
     DTO_FIELD(Int32, sun);
 };
 
+class FertilizerResultDto : public oatpp::DTO
+{
+    DTO_INIT(FertilizerResultDto, DTO)
+
+    DTO_FIELD(Int32, statusCode);
+    DTO_FIELD(Int32, id);
+    DTO_FIELD(Int32, fertilizer);
+};
+
 #include OATPP_CODEGEN_END(DTO)
 
 #endif //PRINCESSSGARDENSERVER_DTOS_HPP
