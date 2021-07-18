@@ -21,6 +21,10 @@ target_link_libraries(${project_name}-lib
         PUBLIC oatpp::oatpp
         PUBLIC oatpp::oatpp-sqlite)
 
+add_definitions(
+        -DDATABASE_MIGRATIONS="${CMAKE_CURRENT_SOURCE_DIR}/sql"
+)
+
 target_include_directories(${project_name}-lib
         PUBLIC src)
 
