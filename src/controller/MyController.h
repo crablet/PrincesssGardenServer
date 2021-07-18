@@ -97,7 +97,7 @@ public:
             plantDto->sun = 53;
             plantDto->water = 53;
             plantDto->fertilizer = 53;
-            plantDto->period = 53;
+            plantDto->plantPeriod = 53;
 
             dto->plantList->push_back(plantDto);
         }

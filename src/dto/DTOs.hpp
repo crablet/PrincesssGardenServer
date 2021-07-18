@@ -51,7 +51,7 @@ class PlantStatusDto : public oatpp::DTO
     DTO_FIELD(String, name);                    // 名称
     DTO_FIELD(Int32, maturity);     // 成熟时间
     DTO_FIELD(Int32, growth);       // 成长值
-    DTO_FIELD(Int32, period);       // 第几期
+    DTO_FIELD(Int32, plantPeriod);       // 第几期
     DTO_FIELD(Int32, sun);          // 阳光值
     DTO_FIELD(Int32, water);        // 露水值
     DTO_FIELD(Int32, fertilizer);   // 肥料值

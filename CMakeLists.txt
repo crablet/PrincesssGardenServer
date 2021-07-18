@@ -9,15 +9,25 @@ add_library(${project_name}-lib
         src/AppComponent.hpp
         src/controller/MyController.cpp
         src/controller/MyController.h
-        src/dto/DTOs.hpp)
+        src/dto/DTOs.hpp
+        src/db/PlantDb.hpp
+        src/service/PlantService.h
+        src/service/PlantService.cpp)
 
 find_package(oatpp 1.3.0 REQUIRED)
+find_package(oatpp-sqlite 1.3.0 REQUIRED)
 
 target_link_libraries(${project_name}-lib
-        PUBLIC oatpp::oatpp)
+        PUBLIC oatpp::oatpp
+        PUBLIC oatpp::oatpp-sqlite)
 
 target_include_directories(${project_name}-lib
         PUBLIC src)
+
+if(CMAKE_SYSTEM_NAME MATCHES Linux)
+    find_package(Threads REQUIRED)
+    target_link_libraries(${project_name}-lib INTERFACE Threads::Threads ${CMAKE_DL_LIBS})
+endif()
 
 add_executable(${project_name}-exe
         src/App.cpp)
