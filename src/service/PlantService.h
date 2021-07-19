@@ -21,6 +21,8 @@ private:
 
 public:
     oatpp::Object<PlantStatusDto> createPlant(const oatpp::Object<PlantStatusDto> &dto);
+    oatpp::Object<PlantStatusDto> getPlantById(const oatpp::Int32 &id,
+                                               const oatpp::provider::ResourceHandle<oatpp::orm::Connection> &connection = nullptr);
 };
 
 

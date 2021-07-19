@@ -13,6 +13,7 @@
 #include "oatpp/core/macro/component.hpp"
 
 #include "dto/DTOs.hpp"
+//#include "service/PlantService.h"
 
 #include OATPP_CODEGEN_BEGIN(ApiController)
 
@@ -155,6 +156,15 @@ public:
 
         return createDtoResponse(Status::CODE_200, dto);
     }
+
+//    ENDPOINT_INFO(createPlant)
+//    {
+//
+//    }
+//    ENDPOINT("POST", "plant", createPlant, BODY_DTO(Object<PlantStatusDto>, plantDto))
+//    {
+//
+//    }
 };
 
 #include OATPP_CODEGEN_END(ApiController)

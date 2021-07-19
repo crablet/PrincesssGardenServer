@@ -30,6 +30,10 @@ public:
           "(name, maturity) VALUES "
           "(:plant.name, :plant.maturity);",
           PARAM(oatpp::Object<PlantStatusDto>, plant));
+
+    QUERY(getPlantById,
+          "SELECT * FROM Plant WHERE id=:id",
+          PARAM(oatpp::Int32, id))
 };
 
 #include OATPP_CODEGEN_END(DbClient)
