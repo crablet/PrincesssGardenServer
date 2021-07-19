@@ -9,8 +9,8 @@ oatpp::Object<PlantStatusDto> PlantService::createPlant(const oatpp::Object<Plan
     auto dbResult = database->createPlant(dto);
     OATPP_ASSERT_HTTP(dbResult->isSuccess(), Status::CODE_500, dbResult->getErrorMessage());
 
-    // todo: 补充完整这个函数
-    return {};
+    auto plantId = oatpp::sqlite::Utils::getLastInsertRowId(dbResult->getConnection());
+    return getPlantById(static_cast<v_int32>(plantId));
 }
 
 oatpp::Object<PlantStatusDto> PlantService::getPlantById(const oatpp::Int32 &id,
