@@ -12,7 +12,9 @@ add_library(${project_name}-lib
         src/dto/DTOs.hpp
         src/db/PlantDb.hpp
         src/service/PlantService.h
-        src/service/PlantService.cpp)
+        src/service/PlantService.cpp
+        src/AppComponent.hpp
+        src/DatabaseComponent.hpp)
 
 find_package(oatpp 1.3.0 REQUIRED)
 find_package(oatpp-sqlite 1.3.0 REQUIRED)
@@ -22,6 +24,10 @@ target_link_libraries(${project_name}-lib
         PUBLIC oatpp::oatpp-sqlite)
 
 add_definitions(
+        ## SQLite database file
+        -DDATABASE_FILE="${CMAKE_CURRENT_SOURCE_DIR}/db.sqlite"
+
+        ## Path to database migration scripts
         -DDATABASE_MIGRATIONS="${CMAKE_CURRENT_SOURCE_DIR}/sql"
 )
 
