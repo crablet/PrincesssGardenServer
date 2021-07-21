@@ -2,8 +2,6 @@
 // Created by crablet on 2022/1/13.
 //
 
-#include <iostream>
-
 #include "oatpp/network/Server.hpp"
 
 #include "./controller/MyController.h"
@@ -34,6 +32,10 @@ void run()
 
     /* Run server */
     server.run();
+
+    /* stop db connection pool */
+    OATPP_COMPONENT(std::shared_ptr<oatpp::provider::Provider<oatpp::sqlite::Connection>>, dbConnectionProvider);
+    dbConnectionProvider->stop();
 }
 
 int main()
