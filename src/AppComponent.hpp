@@ -10,6 +10,8 @@
 #include "oatpp/parser/json/mapping/ObjectMapper.hpp"
 #include "oatpp/core/macro/component.hpp"
 
+#include "DatabaseComponent.hpp"
+
 /**
  *  Class which creates and holds Application components and registers components in oatpp::base::Environment
  *  Order of components initialization is from top to bottom
@@ -17,6 +19,11 @@
 class AppComponent
 {
 public:
+    /**
+    * Database component
+    */
+    DatabaseComponent databaseComponent;
+
     /**
      * Create ConnectionProvider component which listens on the port
      */
