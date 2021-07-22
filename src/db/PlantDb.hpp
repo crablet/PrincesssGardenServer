@@ -18,7 +18,8 @@ public:
         : oatpp::orm::DbClient(executor)
     {
         oatpp::orm::SchemaMigration migration(executor);
-        migration.addFile(1, DATABASE_MIGRATIONS "PlantInit.sql");
+        // todo: 这里应该从配置文件里读位置，禁止硬编码
+        migration.addFile(1, "/home/ubuntu/PrincesssGardenServer/sql/PlantInit.sql");
         migration.migrate();
 
         auto version = executor->getSchemaVersion();
