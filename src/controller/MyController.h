@@ -32,6 +32,12 @@ private:
     PlantService plantService;
 
 public:
+    static std::shared_ptr<MyController> createShared(
+            OATPP_COMPONENT(std::shared_ptr<ObjectMapper>, objectMapper) // Inject objectMapper component here as default parameter
+    ){
+        return std::make_shared<MyController>(objectMapper);
+    }
+
     ENDPOINT("GET", "/", root)
     {
         auto dto = MyDto::createShared();
